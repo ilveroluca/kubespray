@@ -65,6 +65,9 @@ multus_version: "v3.1.autoconf"
 # Download URLs
 kubeadm_download_url: "https://storage.googleapis.com/kubernetes-release/release/{{ kubeadm_version }}/bin/linux/{{ image_arch }}/kubeadm"
 hyperkube_download_url: "https://storage.googleapis.com/kubernetes-release/release/{{ kube_version }}/bin/linux/amd64/hyperkube"
+# LP: we're temporarily downloading the following archives from CRS4's storage instead of
+# github.com because we currently have a network problem in our openstack cluster that
+# isn't letting us access github via https.
 #etcd_download_url: "https://github.com/coreos/etcd/releases/download/{{ etcd_version }}/etcd-{{ etcd_version }}-linux-amd64.tar.gz"
 #cni_download_url: "https://github.com/containernetworking/plugins/releases/download/{{ cni_version }}/cni-plugins-{{ image_arch }}-{{ cni_version }}.tgz"
 etcd_download_url: "https://space.crs4.it/s/Zun6JKha4tSbF7y/download"
