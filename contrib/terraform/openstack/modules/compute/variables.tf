@@ -77,3 +77,7 @@ variable "supplementary_node_groups" {
 variable "worker_allowed_ports" {
   type = "list"
 }
+
+variable "master_vm_scheduler_policy" {
+  default = "soft-anti-affinity"
+}

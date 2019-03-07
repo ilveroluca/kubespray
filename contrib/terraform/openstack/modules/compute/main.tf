@@ -64,7 +64,7 @@ resource "openstack_networking_secgroup_rule_v2" "worker" {
 
 resource "openstack_compute_servergroup_v2" "master_sg" {
   name     = "k8s_master_sg"
-  policies = ["soft-anti-affinity"]
+  policies = "${var.vm_scheduler_policies}"
 }
 
 resource "openstack_compute_instance_v2" "bastion" {
@@ -92,7 +92,6 @@ resource "openstack_compute_instance_v2" "bastion" {
   provisioner "local-exec" {
     command = "sed s/USER/${var.ssh_user}/ contrib/terraform/openstack/ansible_bastion_template.txt | sed s/BASTION_ADDRESS/${var.bastion_fips[0]}/ > contrib/terraform/group_vars/no-floating.yml"
   }
-
 }
 
 resource "openstack_compute_instance_v2" "k8s_master" {
