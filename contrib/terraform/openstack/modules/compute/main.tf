@@ -64,12 +64,12 @@ resource "openstack_networking_secgroup_rule_v2" "worker" {
 
 resource "openstack_compute_servergroup_v2" "master_sg" {
   name     = "k8s_master_sg"
-  policies = "${var.master_vm_scheduler_policy}"
+  policies = [ "${var.master_vm_scheduler_policy}" ]
 }
 
 resource "openstack_compute_servergroup_v2" "node_sg" {
   name     = "k8s_node_sg"
-  policies = "${var.node_vm_scheduler_policy}"
+  policies = [ "${var.node_vm_scheduler_policy}" ]
 }
 
 resource "openstack_compute_instance_v2" "bastion" {
