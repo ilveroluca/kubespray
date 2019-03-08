@@ -81,3 +81,7 @@ variable "worker_allowed_ports" {
 variable "master_vm_scheduler_policy" {
   default = "soft-anti-affinity"
 }
+
+variable "node_vm_scheduler_policy" {
+  default = "soft-anti-affinity"
+}
